@@ -40,7 +40,7 @@ def start_evaluation(file_path):
 
 	output_file.close()
 
-	print("It requires " + str(round(duration/1000, 4)) + " seconds")
+	#print("It requires " + str(round(duration/1000, 4)) + " seconds")
 
 def optimized_columns_and_singletons_stats_and_quasi_identifies(data_df):
 
@@ -84,13 +84,13 @@ def optimized_columns_and_singletons_stats_and_quasi_identifies(data_df):
 	temp_to_return['statistics_for_combination'] = all_statistics_for_combination
 	temp_to_return['statistics_for_combination'] = all_singleton_occurrences
 
-	print("Number of identifiers: " + str(len(identifiers)))
+	'''print("Number of identifiers: " + str(len(identifiers)))
 	print("Number of singletons: " + str(temp_result['absolute_value_quasi_identifier']) 
 		+ "/" + str(temp_result['size_sample']))
 	print("Percentage of singletons: " + str(temp_result['percentage_quasi_identifiers']))
 	print(temp_result['quasi_identifiers'])
 	print("Best quasi-identifier: "+ ",".join(temp_result['quasi_identifiers']))
-	print("Distinct values: " + str(temp_result['distinct_values']))
+	print("Distinct values: " + str(temp_result['distinct_values']))'''
 
 	return temp_to_return
 
