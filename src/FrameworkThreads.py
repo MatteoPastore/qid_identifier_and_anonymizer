@@ -30,22 +30,22 @@ class AnonymizerThread (threading.Thread):
 def anonymizeThread(path, field, type):
 	Anonymizer.anonymize(path, field, type)	
 	if type=="Year":
-		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndex.csv", path[:-4]+"Range.csv")
-		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndex.csv", path[:-4]+"Centroid.csv")	
+		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\src\\dataset_newIndex.csv", path[:-4]+"Range.csv")
+		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\src\\dataset_newIndex.csv", path[:-4]+"Centroid.csv")	
 		DropNewId.dropNewId(path[:-4]+"Range.csv")
 		PrivacyChecker.privacychecker(path[:-4]+"RangeNoNewId.csv")
 		DropNewId.dropNewId(path[:-4]+"Centroid.csv")
 		PrivacyChecker.privacychecker(path[:-4]+"CentroidNoNewId.csv")
 	if type=="Gender":
-		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndex.csv", path[:-4]+"GenderAll.csv")
-		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndex.csv", path[:-4]+"GenderSingleton.csv")	
+		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\src\\dataset_newIndex.csv", path[:-4]+"GenderAll.csv")
+		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\src\\dataset_newIndex.csv", path[:-4]+"GenderSingleton.csv")	
 		DropNewId.dropNewId(path[:-4]+"GenderAll.csv")
 		PrivacyChecker.privacychecker(path[:-4]+"GenderAllNoNewId.csv")
 		DropNewId.dropNewId(path[:-4]+"GenderSingleton.csv")
 		PrivacyChecker.privacychecker(path[:-4]+"GenderSingletonNoNewId.csv")
 	if type=="Municipality":
-		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndex.csv", path[:-4]+"ProvinceAll.csv")
-		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndex.csv", path[:-4]+"ProvinceSingleton.csv")	
+		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\src\\dataset_newIndex.csv", path[:-4]+"ProvinceAll.csv")
+		MatchingCsv.matching("C:\\Users\\matte\\Desktop\\src\\dataset_newIndex.csv", path[:-4]+"ProvinceSingleton.csv")	
 		DropNewId.dropNewId(path[:-4]+"ProvinceAll.csv")
 		PrivacyChecker.privacychecker(path[:-4]+"ProvinceAllNoNewId.csv")
 		DropNewId.dropNewId(path[:-4]+"ProvinceSingleton.csv")
@@ -77,36 +77,36 @@ if os.path.isfile("comune_residenza,anno_nascita.csv"):
 
 os.system("python Singleton.py dataset.csv")
 if os.path.isfile("anno_nascita,comune_residenza,sesso.csv"):
-	os.rename(r'C:\\Users\\matte\\Desktop\\Framework2\\anno_nascita,comune_residenza,sesso.csv',r'C:\\Users\\matte\\Desktop\\Framework2\\sesso,anno_nascita,comune_residenza.csv')
+	os.rename(r'C:\\Users\\matte\\Desktop\\src\\anno_nascita,comune_residenza,sesso.csv',r'C:\\Users\\matte\\Desktop\\src\\sesso,anno_nascita,comune_residenza.csv')
 if os.path.isfile("comune_residenza,anno_nascita,sesso.csv"):
-	os.rename(r'C:\\Users\\matte\\Desktop\\Framework2\\comune_residenza,anno_nascita,sesso.csv',r'C:\\Users\\matte\\Desktop\\Framework2\\sesso,anno_nascita,comune_residenza.csv')
+	os.rename(r'C:\\Users\\matte\\Desktop\\src\\comune_residenza,anno_nascita,sesso.csv',r'C:\\Users\\matte\\Desktop\\src\\sesso,anno_nascita,comune_residenza.csv')
 if os.path.isfile("anno_nascita,sesso,comune_residenza.csv"):
-	os.rename(r'C:\\Users\\matte\\Desktop\\Framework2\\anno_nascita,sesso,comune_residenza.csv',r'C:\\Users\\matte\\Desktop\\Framework2\\sesso,anno_nascita,comune_residenza.csv')
+	os.rename(r'C:\\Users\\matte\\Desktop\\src\\anno_nascita,sesso,comune_residenza.csv',r'C:\\Users\\matte\\Desktop\\src\\sesso,anno_nascita,comune_residenza.csv')
 if os.path.isfile("comune_residenza,sesso,anno_nascita.csv"):
-	os.rename(r'C:\\Users\\matte\\Desktop\\Framework2\\comune_residenza,sesso,anno_nascita.csv',r'C:\\Users\\matte\\Desktop\\Framework2\\sesso,anno_nascita,comune_residenza.csv')
+	os.rename(r'C:\\Users\\matte\\Desktop\\src\\comune_residenza,sesso,anno_nascita.csv',r'C:\\Users\\matte\\Desktop\\src\\sesso,anno_nascita,comune_residenza.csv')
 if os.path.isfile("sesso,comune_residenza,anno_nascita.csv"):
-	os.rename(r'C:\\Users\\matte\\Desktop\\Framework2\\sesso,comune_residenza,anno_nascita.csv',r'C:\\Users\\matte\\Desktop\\Framework2\\sesso,anno_nascita,comune_residenza.csv')								#GenereSingleton
+	os.rename(r'C:\\Users\\matte\\Desktop\\src\\sesso,comune_residenza,anno_nascita.csv',r'C:\\Users\\matte\\Desktop\\src\\sesso,anno_nascita,comune_residenza.csv')								#GenereSingleton
 
 
 #SetIndex e PrivacyChecker
 print("Running SetIndex and PrivacyChecker")
-SetIndex.setIndex("C:\\Users\\matte\\Desktop\\Framework2\\dataset.csv")	
-PrivacyChecker.privacychecker("C:\\Users\\matte\\Desktop\\Framework2\\dataset.csv")
+SetIndex.setIndex("C:\\Users\\matte\\Desktop\\src\\dataset.csv")	
+PrivacyChecker.privacychecker("C:\\Users\\matte\\Desktop\\src\\dataset.csv")
 
 #YearRange + YearCentroid
-thread1=AnonymizerThread("YearRange + YearCentroid","C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndex.csv", "anno_nascita", "Year")
+thread1=AnonymizerThread("YearRange + YearCentroid","C:\\Users\\matte\\Desktop\\src\\dataset_newIndex.csv", "anno_nascita", "Year")
 thread1.start()
 
 
 #GenderAll and GenderSingleton
 
-thread2=AnonymizerThread("Gender All + Gender Singleton","C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndex.csv", "sesso", "Gender")
+thread2=AnonymizerThread("Gender All + Gender Singleton","C:\\Users\\matte\\Desktop\\src\\dataset_newIndex.csv", "sesso", "Gender")
 thread2.start()
 
 
 #ProvinceAll and ProvinceSingleton	
 
-thread3=AnonymizerThread("Province All + Province Singleton","C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndex.csv", "comune_residenza", "Municipality")
+thread3=AnonymizerThread("Province All + Province Singleton","C:\\Users\\matte\\Desktop\\src\\dataset_newIndex.csv", "comune_residenza", "Municipality")
 thread3.start()
 
 
@@ -115,31 +115,31 @@ thread2.join()
 thread3.join()
 #YearRange + Province
 
-thread4=AnonymizerThread("Year Range + Province","C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndexRange.csv", "comune_residenza", "Municipality")
+thread4=AnonymizerThread("Year Range + Province","C:\\Users\\matte\\Desktop\\src\\dataset_newIndexRange.csv", "comune_residenza", "Municipality")
 thread4.start()
 
 
 #YearCentroid + Province
 
-thread5=AnonymizerThread("Year Centroid + Province","C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndexCentroid.csv", "comune_residenza", "Municipality")
+thread5=AnonymizerThread("Year Centroid + Province","C:\\Users\\matte\\Desktop\\src\\dataset_newIndexCentroid.csv", "comune_residenza", "Municipality")
 thread5.start()
 
 #GenderAll + Province
 
-threadGenderAllProvince=AnonymizerThread("Gender All + Province","C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndexGenderAll.csv", "comune_residenza", "Municipality")
+threadGenderAllProvince=AnonymizerThread("Gender All + Province","C:\\Users\\matte\\Desktop\\src\\dataset_newIndexGenderAll.csv", "comune_residenza", "Municipality")
 threadGenderAllProvince.start()
 
 
 #GenderAll + Year
-thread7=AnonymizerThread("Gender All + Year","C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndexGenderAll.csv", "anno_nascita", "Year")
+thread7=AnonymizerThread("Gender All + Year","C:\\Users\\matte\\Desktop\\src\\dataset_newIndexGenderAll.csv", "anno_nascita", "Year")
 thread7.start()
 
 
 threadGenderAllProvince.join()
 #GenderAll + Province + Year
 
-thread8=AnonymizerThread("Gender All + Province + Year ","C:\\Users\\matte\\Desktop\\Framework2\\dataset_newIndexGenderAllProvinceAll.csv", "anno_nascita", "Year")
+thread8=AnonymizerThread("Gender All + Province + Year ","C:\\Users\\matte\\Desktop\\src\\dataset_newIndexGenderAllProvinceAll.csv", "anno_nascita", "Year")
 thread8.start()
 
 #Ranking
-BestFinder.finder("C:\\Users\\matte\\Desktop\\Framework2\\resultsQuality", "C:\\Users\\matte\\Desktop\\Framework2\\results")
+BestFinder.finder("C:\\Users\\matte\\Desktop\\src\\resultsQuality", "C:\\Users\\matte\\Desktop\\src\\results")
