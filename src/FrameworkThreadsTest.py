@@ -71,7 +71,7 @@ if os.path.isfile("sesso,comune_residenza,anno_nascita.csv"):
 
 #SetIndex e PrivacyChecker
 print("Running SetIndex and PrivacyChecker")
-SetIndex.setIndex("dataset.csv")	
+SetIndex.setIndex("..\\src\\dataset.csv")	
 PrivacyChecker.privacychecker("dataset.csv")
 
 #YearRange + YearCentroid
