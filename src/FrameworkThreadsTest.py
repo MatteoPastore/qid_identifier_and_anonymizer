@@ -54,26 +54,7 @@ def anonymizeThread(path, field, type):
 
 
 
-if os.path.isfile("sesso,anno_nascita,comune_residenza.csv"):
-	os.remove("sesso,anno_nascita,comune_residenza.csv")
-if os.path.isfile("sesso,anno_nascita.csv"):
-	os.remove("sesso,anno_nascita.csv")
-if os.path.isfile("sesso,comune_residenza.csv"):
-	os.remove("sesso,comune_residenza.csv")
-if os.path.isfile("sesso.csv"):
-	os.remove("sesso.csv")
-if os.path.isfile("anno_nascita,comune_residenza.csv"):
-	os.remove("anno_nascita,comune_residenza.csv")
-if os.path.isfile("anno_nascita.csv"):
-	os.remove("anno_nascita.csv")
-if os.path.isfile("anno_nascita,sesso.csv"):
-	os.remove("anno_nascita,sesso.csv")
-if os.path.isfile("comune_residenza.csv"):
-	os.remove("comune_residenza.csv")
-if os.path.isfile("comune_residenza,sesso.csv"):
-	os.remove("comune_residenza,sesso.csv")
-if os.path.isfile("comune_residenza,anno_nascita.csv"):
-	os.remove("comune_residenza,anno_nascita.csv")
+
 
 os.system("python Singleton.py dataset.csv")
 if os.path.isfile("anno_nascita,comune_residenza,sesso.csv"):
