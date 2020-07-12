@@ -7,7 +7,7 @@ import sys
 class ProvinceSingletonClass():
   def anonymizeProvinceSingleton(file_path, field):
     file_name = os.path.basename(file_path).split(".")[0]
-    dataProvincia=pd.read_csv("C:\\Users\\matte\\Downloads\\provinces.csv", delimiter=",", encoding="ISO-8859-1")
+    dataProvincia=pd.read_csv("provinces.csv", delimiter=",", encoding="ISO-8859-1")
     columns=os.path.splitext("sesso,anno_nascita,comune_residenza.csv")[0].split(",")
     colnames=[]
     for name in columns:
