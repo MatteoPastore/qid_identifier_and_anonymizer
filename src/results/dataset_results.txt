@@ -1,0 +1,7 @@
+Number of identifiers: 0
+Number of singletons: 1684/87464
+Percentage of singletons: 2
+Best quasi-identifier: 
+anno_nascita,sesso,comune_residenza
+Distinct values: 9174
+Execution time: 0.0003 seconds
