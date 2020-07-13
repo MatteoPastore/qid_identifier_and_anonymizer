@@ -13,7 +13,7 @@ from BestAnonymization import BestFinder as BestFinder
 import threading
 import time
 
-from apscheduler.scheduler import Scheduler
+import apscheduler
 
 
 class AnonymizerThread (threading.Thread):
