@@ -99,11 +99,12 @@ t2= dt.datetime.now()
 Timer=1
 while Timer==1:
 	delta = dt.datetime.now()-t
+	delta2 = dt.datetime.now()-t2
 	if delta.seconds >= 300:
 		print("5 Min")
         
 		t = dt.datetime.now()
-		delta2 = dt.datetime.now()-t2
+		
 	if delta2.seconds >=2880:
 		Timer=0
 thread1.join()
