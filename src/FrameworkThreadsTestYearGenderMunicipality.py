@@ -26,7 +26,7 @@ class AnonymizerThread (threading.Thread):
       print ("Starting " + self.name)
       anonymizeThread(self.path, self.field, self.type)
       print ("Exiting " + self.name)
-
+ 
 def anonymizeThread(path, field, type):
 	Anonymizer.anonymize(path, field, type)	
 	if type=="Year":
