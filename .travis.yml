@@ -7,7 +7,7 @@ python:
 install:
  - pip install -r requirements.txt
 
-script: travis_wait 40 coverage run src/FrameworkThreadsTest.py
+script: coverage run src/FrameworkThreadsTest.py
 
  
  
