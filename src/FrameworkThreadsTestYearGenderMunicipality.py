@@ -13,6 +13,7 @@ from BestAnonymization import BestFinder as BestFinder
 import threading
 import time
 
+from apscheduler.scheduler import Scheduler
 
 
 class AnonymizerThread (threading.Thread):
@@ -67,10 +68,14 @@ if os.path.isfile("comune_residenza,sesso,anno_nascita.csv"):
 if os.path.isfile("sesso,comune_residenza,anno_nascita.csv"):
 	os.rename(r'sesso,comune_residenza,anno_nascita.csv',r'sesso,anno_nascita,comune_residenza.csv')								#GenereSingleton
 
-def timer():
-	print ("Timer")
-rt = RepeatedTimer(300, timer)
 
+sched = Scheduler()
+sched.start()
+
+def timer():
+	print "Timer"
+
+sched.add_interval_job(timer, seconds = 300)
 
 
 #SetIndex e PrivacyChecker
@@ -99,6 +104,6 @@ thread3.start()
 thread1.join()
 thread2.join()
 thread3.join()
-rt.stop()
+sched.shutdown()
 
 
