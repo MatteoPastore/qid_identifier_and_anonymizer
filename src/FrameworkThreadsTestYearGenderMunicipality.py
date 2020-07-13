@@ -6,7 +6,7 @@ import subprocess
 import sys
 from Anonymizer import AnonymizerClass as Anonymizer 
 from MatchingCsv import MatchingClass as MatchingCsv
-from privacy_checker import PrivacyChecker as PrivacyChecker
+from privacy_checker import PrivacyChecker as PrivacyChecker 
 from SetIndex import SetIndexClass as SetIndex
 from DropNewId import DropNewIdClass as DropNewId
 from BestAnonymization import BestFinder as BestFinder
