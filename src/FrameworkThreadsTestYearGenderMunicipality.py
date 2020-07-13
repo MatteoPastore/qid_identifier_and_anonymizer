@@ -70,8 +70,8 @@ if os.path.isfile("sesso,comune_residenza,anno_nascita.csv"):
 def timerFunction():
 	print ("Timer")
 
-t = threading.Timer(300.0, timerFunction)
-t.start()
+t=threading.Timer(300.0, timerFunction).start()
+
 
 
 #SetIndex e PrivacyChecker
