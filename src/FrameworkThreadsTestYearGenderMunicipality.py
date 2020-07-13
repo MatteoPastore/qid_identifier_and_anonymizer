@@ -13,7 +13,8 @@ from BestAnonymization import BestFinder as BestFinder
 import threading
 import time
 
-import apscheduler
+import datetime as dt
+
 
 
 class AnonymizerThread (threading.Thread):
@@ -54,8 +55,6 @@ def anonymizeThread(path, field, type):
 
 
 
-
-
 os.system("python Singleton.py dataset.csv")
 if os.path.isfile("anno_nascita,comune_residenza,sesso.csv"):
 	os.rename(r'anno_nascita,comune_residenza,sesso.csv',r'sesso,anno_nascita,comune_residenza.csv')
@@ -69,13 +68,8 @@ if os.path.isfile("sesso,comune_residenza,anno_nascita.csv"):
 	os.rename(r'sesso,comune_residenza,anno_nascita.csv',r'sesso,anno_nascita,comune_residenza.csv')								#GenereSingleton
 
 
-sched = Scheduler()
-sched.start()
 
-def timer():
-	print ("Timer")
 
-sched.add_interval_job(timer, seconds = 300)
 
 
 #SetIndex e PrivacyChecker
@@ -100,10 +94,18 @@ thread3=AnonymizerThread("Province All + Province Singleton","dataset_newIndex.c
 thread3.start()
 
 
+t = dt.datetime.now()
+Timer=1
+while Timer==1:
+	delta = dt.datetime.now()-t
+	if delta.seconds >= 300:
+		print("5 Min")
+        
+		t = dt.datetime.now()
 
 thread1.join()
 thread2.join()
 thread3.join()
-sched.shutdown()
+Timer=0
 
 
