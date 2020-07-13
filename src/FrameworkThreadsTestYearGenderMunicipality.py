@@ -73,7 +73,7 @@ sched = Scheduler()
 sched.start()
 
 def timer():
-	print "Timer"
+	print ("Timer")
 
 sched.add_interval_job(timer, seconds = 300)
 
