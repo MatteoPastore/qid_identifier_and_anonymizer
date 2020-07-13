@@ -95,6 +95,7 @@ thread3.start()
 
 
 t = dt.datetime.now()
+t2= dt.datetime.now()
 Timer=1
 while Timer==1:
 	delta = dt.datetime.now()-t
@@ -102,10 +103,10 @@ while Timer==1:
 		print("5 Min")
         
 		t = dt.datetime.now()
-
+		if dt.datetime.now()-t2>=2880:
+			Timer=0
 thread1.join()
 thread2.join()
 thread3.join()
-Timer=0
 
 
