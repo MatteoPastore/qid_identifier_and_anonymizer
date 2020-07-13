@@ -51,14 +51,7 @@ def anonymizeThread(path, field, type):
 		DropNewId.dropNewId(path[:-4]+"ProvinceSingleton.csv")
 		PrivacyChecker.privacychecker(path[:-4]+"ProvinceSingletonNoNewId.csv")
 
-Flag=0
-def printit():
-	t=threading.Timer(300.0, printit)
-	t.start()
-	print ("5 minutes")
-	if Flag==1:
-		t.cancel()
-printit()
+
 
 
 
@@ -73,6 +66,12 @@ if os.path.isfile("comune_residenza,sesso,anno_nascita.csv"):
 	os.rename(r'comune_residenza,sesso,anno_nascita.csv',r'sesso,anno_nascita,comune_residenza.csv')
 if os.path.isfile("sesso,comune_residenza,anno_nascita.csv"):
 	os.rename(r'sesso,comune_residenza,anno_nascita.csv',r'sesso,anno_nascita,comune_residenza.csv')								#GenereSingleton
+
+def timerFunction():
+	print "Timer"
+
+t = threading.Timer(300.0, timerFunction)
+t.start()
 
 
 #SetIndex e PrivacyChecker
@@ -96,10 +95,11 @@ thread2.start()
 thread3=AnonymizerThread("Province All + Province Singleton","dataset_newIndex.csv", "comune_residenza", "Municipality")
 thread3.start()
 
+t.start()
 
 thread1.join()
 thread2.join()
 thread3.join()
+t.cancel()
 
-BestFinder.finder("resultsQuality", "results")
-Flag=1
+
