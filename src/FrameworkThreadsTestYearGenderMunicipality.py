@@ -67,10 +67,9 @@ if os.path.isfile("comune_residenza,sesso,anno_nascita.csv"):
 if os.path.isfile("sesso,comune_residenza,anno_nascita.csv"):
 	os.rename(r'sesso,comune_residenza,anno_nascita.csv',r'sesso,anno_nascita,comune_residenza.csv')								#GenereSingleton
 
-def timerFunction():
+def timer():
 	print ("Timer")
-
-t=threading.Timer(300.0, timerFunction).start()
+rt = RepeatedTimer(300, timer)
 
 
 
@@ -100,6 +99,6 @@ thread3.start()
 thread1.join()
 thread2.join()
 thread3.join()
-t.cancel()
+rt.stop()
 
 
