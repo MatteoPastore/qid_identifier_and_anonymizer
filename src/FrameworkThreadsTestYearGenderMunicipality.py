@@ -95,7 +95,7 @@ thread2.start()
 thread3=AnonymizerThread("Province All + Province Singleton","dataset_newIndex.csv", "comune_residenza", "Municipality")
 thread3.start()
 
-t.start()
+
 
 thread1.join()
 thread2.join()
