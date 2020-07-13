@@ -52,8 +52,10 @@ def anonymizeThread(path, field, type):
 		PrivacyChecker.privacychecker(path[:-4]+"ProvinceSingletonNoNewId.csv")
 
 
-threading.Timer(300.0, printit).start()
-  print "5 minutes"
+def printit():
+	threading.Timer(300.0, printit).start()
+	print ("5 minutes")
+printit()
 
 
 
