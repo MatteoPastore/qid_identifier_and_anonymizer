@@ -4,7 +4,7 @@ import numpy as np
 import os
 import subprocess
 import sys
-from Anonymizer import AnonymizerClass as Anonymizer
+from Anonymizer import AnonymizerClass as Anonymizer 
 from MatchingCsv import MatchingClass as MatchingCsv
 from privacy_checker import PrivacyChecker as PrivacyChecker
 from SetIndex import SetIndexClass as SetIndex
