@@ -104,8 +104,8 @@ while Timer==1:
         
 		t = dt.datetime.now()
 		delta2 = dt.datetime.now()-t2
-		if delta2.seconds >=2880:
-			Timer=0
+	if delta2.seconds >=2880:
+		Timer=0
 thread1.join()
 thread2.join()
 thread3.join()
