@@ -51,10 +51,13 @@ def anonymizeThread(path, field, type):
 		DropNewId.dropNewId(path[:-4]+"ProvinceSingleton.csv")
 		PrivacyChecker.privacychecker(path[:-4]+"ProvinceSingletonNoNewId.csv")
 
-
+Flag=0
 def printit():
-	threading.Timer(300.0, printit).start()
+	t=threading.Timer(300.0, printit)
+	t.start()
 	print ("5 minutes")
+	if Flag==1:
+		t.cancel()
 printit()
 
 
@@ -97,3 +100,6 @@ thread3.start()
 thread1.join()
 thread2.join()
 thread3.join()
+
+BestFinder.finder("resultsQuality", "results")
+Flag=1
