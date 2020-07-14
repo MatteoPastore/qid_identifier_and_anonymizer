@@ -8,6 +8,8 @@ install:
 
 script: coverage run src/FrameworkThreadsTestYearGenderMunicipality.py
 
+after_script: coverage report
+
  
  
  
