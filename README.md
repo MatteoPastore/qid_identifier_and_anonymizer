@@ -24,3 +24,5 @@ Once anonymized, two are the following steps.
   
 The framework can run in debug or no-debug mode, further more it can run in parallel mode.
 In parallel mode it creates a thread for each anonymization technique.
+
+# Repository structure 
